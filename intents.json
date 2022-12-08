@@ -1,0 +1,87 @@
+{
+    "intents": [{
+            "tag": "greetings",
+            "patterns": ["hi there", "hello","haroo","yaw","wassup", "hi", "hey", "holla", "hello Bot"],
+            "responses": ["Hello. I am an inventory bot<br>Please select one of options<br>1.Supplies & inventory Check <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid22; quantity of itemid22)<br>2.Order Details <br>(Example: details / info details for order24; order placed for itemid24; order date for itemid24; quantity info for order24)<br>3.Create PO (PurchaseOrder) <br>(Example: POCreation: ItemID11,50)<br>4.Get Sales Order/Purchase Order Details <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["bye", "good bye", "see you later"],
+            "responses": ["have a nice time, welcome back again", "bye bye"],
+            "context": [""]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["Thank","Thank you"],
+            "responses": ["Happy to help!", "Any time!","you're welcome", "My pleasure"],
+            "context": [""]
+        },
+		{
+            "tag": "item",
+            "patterns": ["Supplies & inventory Check"],
+            "responses": ["Please provide more info. <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid24; quantity of itemid24)"],
+            "context": [""]
+        },
+		{
+            "tag": "order",
+            "patterns": ["Order Details"],
+            "responses": ["Please provide more info. <br>(Example: details / info for order24; order placed for itemid24; order date for itemid24; quantity info for order24)"],
+            "context": [""]
+        },
+		{
+            "tag": "sod",
+            "patterns": ["SO Details","Sales Order Details"],
+            "responses": ["Please provide more info. <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+		{
+            "tag": "pod",
+            "patterns": ["PO Details","Purchase Order Details"],
+            "responses": ["Please provide more info. <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1)"],
+            "context": [""]
+        },
+		{
+            "tag": "spod",
+            "patterns": ["Sales Order/Purchase Order Details"],
+            "responses": ["Please provide more info. <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+		{
+            "tag": "so",
+            "patterns": ["Create PO (PurchaseOrder)","PO Creation","Create PO Item"],
+            "responses": ["Please provide itemid and quantity. (Example: POCreation: ItemID11,50)"],
+            "context": [""]
+        },
+        {
+            "tag": "noanswer",
+            "patterns": [""],
+            "responses": ["Sorry, I didn't understand you. <br>Please select one of options<br>1.Supplies & inventory Check <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid22; quantity of itemid22)<br>2.Order Details <br>(Example: details / info details for order24; order placed for itemid24; order date for itemid24; quantity info for order24)<br>3.Create PO (PurchaseOrder) <br>(Example: POCreation: ItemID11,50)<br>4.Get Sales Order/Purchase Order Details <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+        {
+            "tag": "name",
+            "patterns": ["my name is ", "I'm ","I am"],
+            "responses": ["Great to meet you. How may I assist you"],
+            "context": [""]
+        },
+		{
+            "tag": "location",
+            "patterns": ["location"],
+            "responses": ["Sorry, I didn't understand you. <br>Please select one of options<br>1.Supplies & inventory Check <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid22; quantity of itemid22)<br>2.Order Details <br>(Example: details / info details for order24; order placed for itemid24; order date for itemid24; quantity info for order24)<br>3.Create PO (PurchaseOrder) <br>(Example: POCreation: ItemID11,50)<br>4.Get Sales Order/Purchase Order Details <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+        {
+            "tag": "need",
+            "patterns": ["I need you", "All I need is you","I want you"],
+            "responses": ["Yes I'm here to assist you. <br>Please select one of options<br>1.Supplies & inventory Check <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid22; quantity of itemid22)<br>2.Order Details <br>(Example: details / info details for order24; order placed for itemid24; order date for itemid24; quantity info for order24)<br>3.Create PO (PurchaseOrder) <br>(Example: POCreation: ItemID11,50)<br>4.Get Sales Order/Purchase Order Details <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        },
+        {
+            "tag": "item",
+            "patterns": ["item"],
+            "responses": ["Please select one of options<br>1.Supplies & inventory Check <br>(Example: details / info for itemid24; info about itemid24; date info of itemid24; location of itemid22; quantity of itemid22)<br>2.Order Details <br>(Example: details / info details for order24; order placed for itemid24; order date for itemid24; quantity info for order24)<br>3.Create PO (PurchaseOrder) <br>(Example: POCreation: ItemID11,50)<br>4.Get Sales Order/Purchase Order Details <br>(Example: details / info for PONum1; date for PONum1; Purchase quantity details for PONum1; Vendor info for PONum1) <br>(Example: details / info for SONum1; date for SONum1; get me PO details for SONum1; Cost info for SONum1; sold quantity details for SONum1)"],
+            "context": [""]
+        }
+    ]
+}

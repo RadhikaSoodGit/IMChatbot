@@ -1,0 +1,247 @@
+{
+    "intents": [
+	    {
+            "tag": "I",
+            "textmatch": ["detail","info","information","quantity","available","availability","used","received","last","stock","many","utilize","consume","use","utilized"],
+            "command": "df_item.loc[df_item['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Information about the Item"
+        },
+		{
+            "tag": "I",
+            "textmatch": ["price","cost","pricing"],
+            "command": "df_item.loc[df_item['ItemID'].isin(itemlist)][['ItemID','ItemPrice']]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Pricing of the Item"
+        },
+		{
+            "tag": "I",
+            "textmatch": ["locate","location","located","store","stored","kept","Where"],
+            "command": "pd.merge(df_item,df_location, on='SKUID', how='inner')[['ItemID','AvailableLocations','RackID','ColumnID']]",
+			"command1": "df_list.loc[df_list['ItemID'].isin(itemlist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Location of the Item"
+        },
+		{
+            "tag": "IV",
+            "textmatch": ["available","quantity","offered","sold","stock","availability","many","much","number"],
+            "command": "pd.merge(df_item,df_vendor, on='ItemID', how='inner')[['ItemID','VendorID','VendorName','VendorHeldQuantity']]",
+			"command1": "df_list.loc[df_list['ItemID'].isin(itemlist)]",
+			"command2": "df_list.loc[df_list['VendorID'].isin(vendorlist)]",
+			"command3": "",
+            "context": "Items with the Vendor"
+        },
+		{
+            "tag": "IN",
+            "textmatch": ["available","quantity","offered","sold","stock","availability","many","much","number"],
+            "command": "pd.merge(df_item,df_vendor, on='ItemID', how='inner')[['ItemID','VendorID','VendorName','VendorHeldQuantity']]",
+			"command1": "df_list.loc[df_list['ItemID'].isin(itemlist)]",
+			"command2": "df_list.loc[df_list['VendorName'].isin(vendornamelist)]",
+			"command3": "",
+            "context": "Items with the Vendor"
+        },
+		{
+            "tag": "V",
+            "textmatch": ["available","quantity","offered","sold","detail","info","information","item","product","stock","availability","many","much","units","offer","inventory","sell"],
+            "command": "df_vendor.loc[df_vendor['VendorID'].isin(vendorlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Details about the Vendor"
+        },
+		{
+            "tag": "I",
+            "textmatch": ["vendor","merchant","seller"],
+            "command": "df_vendor.loc[df_vendor['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Item"
+        },
+		{
+            "tag": "N",
+            "textmatch": ["detail","merchant","vendor","item","vendorid","quantity"],
+            "command": "df_vendor.loc[df_vendor['VendorName'].isin(vendornamelist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Details about the Vendor"
+        },
+		{
+            "tag": "I",
+            "textmatch": ["sold","order"],
+            "command": "df_order.loc[df_order['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Order details for the Item"
+        },
+		{
+            "tag": "I",
+            "textmatch": ["po"],
+            "command": "df_po.loc[df_po['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Purchase Order details for the Item"
+        },
+        {
+            "tag": "IP",
+            "textmatch": ["detail","item","info","information","date","podate"],
+            "command": "df_po.loc[df_po['ItemID'].isin(itemlist)]",
+			"command1": "df_list.loc[df_list['PONumber'].isin(polist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Purchase Order details for the Item"
+        },
+		{
+            "tag": "O",
+            "textmatch": ["sold","item","detail","info","information","available","quantity","much","many","offer","units","date","delivered","received"],
+            "command": "df_order.loc[df_order['OrderID'].isin(orderlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Order details for the Item"
+        },
+        {
+            "tag": "O",
+            "textmatch": ["sold","item","detail","info","information","available","quantity","much","many","offer","units","date","delivered","received"],
+            "command": "df_order.loc[df_order['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Order details for the Item"
+        },
+		{
+            "tag": "IO",
+            "textmatch": ["sold","item","detail","info","information","available","quantity","much","many","offer","units","date","delivered","received"],
+            "command": "df_order.loc[df_order['OrderID'].isin(orderlist)]",
+			"command1": "df_list.loc[df_list['ItemID'].isin(itemlist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Order details for the Item"
+        },
+		{
+            "tag": "L",
+            "textmatch": ["item","rack","column","quantity"],
+            "command": "pd.merge(df_item,df_location, on='SKUID', how='inner')[['ItemID','ItemQuantityHeld','AvailableLocations','RackID','ColumnID']]",
+			"command1": "df_list.loc[df_list['AvailableLocations'].isin(locationlist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Location of the Item"
+        },
+		{
+            "tag": "IL",
+            "textmatch": ["item","stored","store","available"],
+            "command": "pd.merge(df_item,df_location, on='SKUID', how='inner')[['ItemID','AvailableLocations','RackID','ColumnID']]",
+			"command1": "df_list.loc[df_list['AvailableLocations'].isin(locationlist)]",
+			"command2": "df_list.loc[df_list['ItemID'].isin(itemlist)]",
+			"command3": "",
+            "context": "Location of the Item"
+        },
+		{
+            "tag": "S",
+            "textmatch": ["detail","item","info","information","po","vendor","seller","merchant","sodate","date","cost","price"],
+            "command": "df_so.loc[df_so['SONumber'].isin(solist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Sales Order details"
+        },
+		{
+            "tag": "S",
+            "textmatch": ["vendor","seller","merchant"],
+            "command": "df_so.loc[df_so['SONumber'].isin(solist)][['SONumber','VendorID']]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Sales Order"
+        },
+		{
+            "tag": "I",
+            "textmatch": "so",
+            "command": "df_so.loc[df_so['ItemID'].isin(itemlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Sales Order details for the Item"
+        },
+		{
+            "tag": "P",
+            "textmatch": ["so","cost","price"],
+            "command": "df_so.loc[df_so['PONumber'].isin(polist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Sales Order details for the Purchase Order"
+        },
+		{
+            "tag": "P",
+            "textmatch": ["item","podate","detail", "information","info","date"],
+            "command": "df_po.loc[df_po['PONumber'].isin(polist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Purchase Order details"
+        },
+        {
+            "tag": "P",
+            "textmatch": ["vendor","seller","merchant","vendorname"],
+            "command": "df_po.loc[df_po['PONumber'].isin(polist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for Purchase Order"
+        },
+		{
+            "tag": "V",
+            "textmatch": "so",
+            "command": "df_so.loc[df_so['VendorID'].isin(vendorlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Sales Order"
+        },
+		{
+            "tag": "V",
+            "textmatch": "po",
+            "command": "df_po.loc[df_po['VendorID'].isin(vendorlist)]",
+			"command1": "",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Purchase Order"
+        },
+		{
+            "tag": "VP",
+            "textmatch": ["detail","order","info","information"],
+            "command": "df_po.loc[df_po['VendorID'].isin(vendorlist)]",
+			"command1": "df_list.loc[df_list['PONumber'].isin(polist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Purchase Order"
+        },
+		{
+            "tag": "VS",
+            "textmatch": ["detail","order","info","information"],
+            "command": "df_so.loc[df_so['VendorID'].isin(vendorlist)]",
+			"command1": "df_list.loc[df_list['SONumber'].isin(solist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Vendor details for the Sales Order"
+        },
+		{
+            "tag": "PS",
+            "textmatch": ["detail","date"],
+			"command": "df_so.loc[df_so['SONumber'].isin(solist)]",
+            "command1": "df_list.loc[df_list['PONumber'].isin(polist)]",
+			"command2": "",
+			"command3": "",
+            "context": "Sales Order details for the Purchase Order"
+        }
+	]
+}
